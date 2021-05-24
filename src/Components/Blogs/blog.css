@@ -1,0 +1,63 @@
+.pagination-container{
+    margin-top: 80px;
+}
+
+.paginationBttns{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    width: 700px;
+    background: #ccc;
+    border-radius: 40px;
+    padding: 0;
+}
+
+.paginationBttns li{
+     list-style: none;
+    width: 45px;
+    height: 45px;
+    margin: 10px 12px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 15px;
+    color: black;
+    opacity: .6;
+    cursor: pointer;
+}
+
+.paginationBttns li:hover{
+    background: black;
+    color: white;
+    opacity: 1;
+}
+
+.paginationBttns .previous,
+.paginationBttns .next{
+    width: initial;
+    height: initial;
+    border-radius: initial;
+    background: initial;
+    opacity: 1;
+}
+
+.paginationBttns .previousBttn,
+.paginationBttns .nextBttn{
+    color: black;
+    font-weight: 800;
+    font-size: 15px;
+    transition: .2s;
+}
+
+.paginationBttns .previous:hover,
+.paginationBttns .next:hover{
+   opacity: .7;
+    background: none;
+}
+
+.paginationBttns .paginationActive{
+    background: black;
+    color: white;
+    opacity: 1;
+}
