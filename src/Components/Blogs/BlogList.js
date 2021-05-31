@@ -1,17 +1,20 @@
 import React,{useState,useEffect} from 'react';
 import './blog.css';
-import blogs from './blog_data';
 import axios from 'axios';
 import BlogItem from './BlogItem';
 import ReactPaginate from "react-paginate";
+import { useSelector } from 'react-redux';
+import { selectBlog } from '../../features/blogsSlice';
 
 function BlogList() {
+
+    const blogs = useSelector(selectBlog);
 
    const [Allblogs, setblogs] = useState(blogs.slice(0,blogs.length));
    const [pageNumber,setpageNumber] = useState(0);
 
 
-   const userPerPage = 10;
+   const userPerPage = 9;
    const pageVisited = pageNumber * userPerPage;
    const displayUsers = Allblogs.slice(pageVisited,pageVisited + userPerPage);
 

@@ -6,7 +6,7 @@ function BlogItem({data:{id,title,category,category2,author,description,mini_des
                         <div className="post-entry d-block small-post-entry-v">
                             <div className="thumbnail">
                                 <a href="single.html">
-                                <img src={blog_image} alt="Image" className="img-fluid" />
+                                <img src={blog_image && blog_image} alt="Image" className="img-fluid" />
                                 </a>
                             </div>
                             <div className="content">
@@ -20,7 +20,7 @@ function BlogItem({data:{id,title,category,category2,author,description,mini_des
                                 <p>{mini_description}</p>
                                 <a href="#" className="post-author d-flex align-items-center">
                                     <div className="author-pic">
-                                        <img src={image} alt="Image" />
+                                        <img src={image && image} alt="Image" />
                                     </div>
                                     <div className="text">
                                         <strong>{author}</strong>

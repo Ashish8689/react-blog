@@ -1,8 +1,41 @@
-import React from 'react'
+import React from 'react';
+import { selecthamburger, sethamburgerValue  } from '../../features/hamburger/hamburgerSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {Link} from 'react-router-dom';
+
 
 function Navbar() {
+
+    const hamburger = useSelector(selecthamburger);
+    const dispatch = useDispatch();
+
+
     return (
-        <div className="navbar-container">  
+        <div className={hamburger ? "navbar-container offcanvas-menu" : "navbar-container"}>  
+
+            <div class="site-mobile-menu site-navbar-target">
+                <div class="site-mobile-menu-header">
+                    <div class="site-mobile-menu-close">
+                    <span class="icofont-close js-menu-toggle" onClick={()=>dispatch(sethamburgerValue(!hamburger))} ></span>
+                    </div>
+                </div>
+
+                <div class="site-mobile-menu-body">
+                    <Link to="/" onClick={()=>dispatch(sethamburgerValue(false))}>
+                        <h2>Home</h2>
+                    </Link>
+
+                    <Link to="/AddBlog" onClick={()=>dispatch(sethamburgerValue(false))}>
+                        <h2>Add Blog</h2>
+                    </Link>
+
+                    <Link to="/about" onClick={()=>dispatch(sethamburgerValue(false))}>
+                        <h2>About</h2>
+                    </Link>
+                </div>
+            </div>
+
+
             <nav className="site-nav">
             <div className="container">
             <div className="site-navigation">
@@ -26,7 +59,7 @@ function Navbar() {
             <li><a href="#"><i className="fab fa-facebook"></i></a></li>
             <li><a href="#"><i className="fab fa-instagram"></i></a></li>
             </ul>
-            <a href="#" className="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block" data-toggle="collapse" data-target="#main-navbar">
+            <a href="#" onClick={()=>dispatch(sethamburgerValue(!hamburger))}   className="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block" data-toggle="collapse" data-target="#main-navbar">
             <span></span>
             </a>
             </div>
